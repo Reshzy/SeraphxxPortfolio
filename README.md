@@ -58,7 +58,7 @@ To run this project locally:
 
 ## Credits
 
-- Developed by: [Your Name]
+- Developed by: Reshzy
 - Design: Custom design with Tailwind CSS
 - Framework: Laravel
 
