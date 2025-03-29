@@ -22,11 +22,11 @@
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
                 <div class="text-xl font-bold mb-2 md:mb-0">Seraphxx</div>
                 <div class="space-x-4">
-                    <a href="/" class="hover:text-purple-200 transition">Home</a>
-                    <a href="#about" class="hover:text-purple-200 transition">About Me</a>
-                    <a href="/commissions" class="hover:text-purple-200 transition">Commissions</a>
-                    <a href="/portfolio" class="hover:text-purple-200 transition">Portfolio</a>
-                    <a href="/contact" class="hover:text-purple-200 transition">Contact</a>
+                    <a href="{{ route('home') }}" class="hover:text-purple-200 transition">Home</a>
+                    <a href="{{ route('about') }}" class="hover:text-purple-200 transition">About Me</a>
+                    <a href="{{ route('commissions') }}" class="hover:text-purple-200 transition">Commissions</a>
+                    <a href="{{ route('portfolio') }}" class="hover:text-purple-200 transition">Portfolio</a>
+                    <a href="{{ route('contact') }}" class="hover:text-purple-200 transition">Contact</a>
                 </div>
             </div>
         </nav>

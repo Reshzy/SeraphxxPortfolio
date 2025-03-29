@@ -60,7 +60,7 @@
                     <li>Brief description or reference images</li>
                     <li>Deadline (if applicable)</li>
                 </ul>
-                <a href="/commissions" class="text-purple-700 hover:text-purple-900 font-medium">
+                <a href="{{ route('commissions') }}" class="text-purple-700 hover:text-purple-900 font-medium">
                     View detailed commission information →
                 </a>
             </div>

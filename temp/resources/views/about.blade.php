@@ -39,7 +39,7 @@
         </div>
         
         <div class="mt-8 text-center">
-            <a href="/commissions" class="btn btn-primary">View Commission Info</a>
+            <a href="{{ route('commissions') }}" class="btn btn-primary">View Commission Info</a>
         </div>
     </div>
 </div>
