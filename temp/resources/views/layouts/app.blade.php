@@ -20,7 +20,10 @@
         <!-- Navigation -->
         <nav class="sticky top-0 bg-purple-700 text-white p-4 shadow-md z-10">
             <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-                <div class="text-xl font-bold mb-2 md:mb-0">Seraphxx</div>
+                <div class="flex items-center">
+                    <img src="{{ asset('images/logo.png') }}" alt="Seraphxx Logo" class="w-8 h-8 rounded-full object-cover mr-2">
+                    <div class="text-xl font-bold">Seraphxx</div>
+                </div>
                 <div class="space-x-4">
                     <a href="{{ route('home') }}" class="hover:text-purple-200 transition">Home</a>
                     <a href="{{ route('about') }}" class="hover:text-purple-200 transition">About Me</a>
@@ -37,7 +40,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-purple-800 text-white p-6">
+        <footer class="bg-gray-800 text-white p-6">
             <div class="container mx-auto text-center">
                 <p>© {{ date('Y') }} Seraphxx. All rights reserved.</p>
                 <div class="mt-2">

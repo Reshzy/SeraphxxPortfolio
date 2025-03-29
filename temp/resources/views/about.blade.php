@@ -8,9 +8,7 @@
         <div class="bg-white p-8 rounded-lg shadow-md">
             <div class="flex flex-col md:flex-row gap-8 mb-8">
                 <div class="md:w-1/3">
-                    <div class="aspect-square bg-gray-200 rounded-md flex items-center justify-center">
-                        <span class="text-gray-500">Profile Image</span>
-                    </div>
+                    <img src="{{ asset('images/logo.png') }}" alt="Seraphxx Profile" class="w-full h-full object-cover rounded-md">
                 </div>
                 <div class="md:w-2/3">
                     <h2 class="text-2xl font-semibold mb-4">Hello, I'm Sera!</h2>
