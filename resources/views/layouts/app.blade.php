@@ -67,8 +67,11 @@
             pointer-events: none;
             z-index: 9999;
             mix-blend-mode: difference;
-            transition: transform 0.1s ease;
+            transition: all 0.1s ease;
             display: none;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
         }
         
         @media (min-width: 768px) {
@@ -127,10 +130,38 @@
                 
                 if (cursor) {
                     document.addEventListener('mousemove', function(e) {
-                        const x = e.clientX - 20;
-                        const y = e.clientY - 20;
-                        cursor.style.left = x + 'px';
-                        cursor.style.top = y + 'px';
+                        requestAnimationFrame(function() {
+                            cursor.style.left = e.clientX + 'px';
+                            cursor.style.top = e.clientY + 'px';
+                        });
+                    });
+                    
+                    // Add subtle animation to cursor on hover over links
+                    const links = document.querySelectorAll('a, button');
+                    links.forEach(function(link) {
+                        link.addEventListener('mouseenter', function() {
+                            cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                            cursor.style.opacity = '0.5';
+                        });
+                        
+                        link.addEventListener('mouseleave', function() {
+                            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                            cursor.style.opacity = '1';
+                        });
+                    });
+                }
+                
+                // Initialize GSAP animations if available
+                if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                    // Register ScrollTrigger plugin
+                    gsap.registerPlugin(ScrollTrigger);
+                    
+                    // Simple animation for navigation
+                    gsap.from('nav', {
+                        y: -100,
+                        opacity: 0,
+                        duration: 1,
+                        ease: 'power3.out'
                     });
                 }
                 
