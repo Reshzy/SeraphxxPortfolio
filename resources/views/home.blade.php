@@ -2,6 +2,7 @@
 
 @section('styles')
     @vite('resources/css/home.css')
+    @vite('resources/css/custom.css')
 @endsection
 
 @section('content')
@@ -249,4 +250,5 @@
 
 @section('scripts')
     @vite('resources/js/home.js')
+    @vite('resources/js/custom.js')
 @endsection

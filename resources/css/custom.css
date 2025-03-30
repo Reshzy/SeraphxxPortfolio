@@ -1,0 +1,260 @@
+/* Awwwards-style modern animations and effects */
+
+/* Smooth page transitions */
+.page-transition-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #5b21b6;
+    z-index: 9999;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+.page-transition-wrapper.active {
+    animation: page-transition 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes page-transition {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+/* Magnetic buttons */
+.magnetic-btn {
+    position: relative;
+    display: inline-block;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+/* Text split animation */
+.split-text {
+    overflow: hidden;
+    position: relative;
+}
+
+.split-text span {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), 
+                opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.split-text.reveal span {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Decorative elements */
+.deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9333ea, #4f46e5);
+    opacity: 0.1;
+    filter: blur(50px);
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+.deco-line {
+    position: absolute;
+    width: 50px;
+    height: 1px;
+    background-color: rgba(126, 34, 206, 0.3);
+}
+
+/* Parallax effect for images */
+.parallax-image {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+.parallax-image img {
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    transform: scale(1.05);
+}
+
+/* Modern input fields */
+.modern-input {
+    border: none;
+    border-bottom: 1px solid rgba(126, 34, 206, 0.3);
+    background: transparent;
+    padding: 0.75rem 0;
+    width: 100%;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.modern-input:focus {
+    outline: none;
+    border-color: rgba(126, 34, 206, 1);
+}
+
+.floating-label {
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    color: #6b7280;
+    pointer-events: none;
+    transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+.modern-input:focus + .floating-label,
+.modern-input:not(:placeholder-shown) + .floating-label {
+    transform: translateY(-1.25rem);
+    font-size: 0.75rem;
+    color: #9333ea;
+}
+
+/* Interactive image gallery */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: none;
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Scroll animations */
+.appear-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.appear-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.appear-bottom {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.appear-left.in-view,
+.appear-right.in-view,
+.appear-bottom.in-view {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Scale animations */
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in.in-view {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Custom scrollbar - Modern minimal style */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(243, 244, 246, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(126, 34, 206, 0.5);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(126, 34, 206, 0.7);
+}
+
+/* Tilt effect for cards */
+.tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.1s ease;
+}
+
+.tilt-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s ease;
+}
+
+/* Smooth hover transitions */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+} 
+
+.cursor-follower {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(138, 43, 226, 0.15);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: all 0.1s ease;
+    display: none;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+    .cursor-follower {
+        display: block;
+    }
+}
