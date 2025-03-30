@@ -65,7 +65,7 @@
                     <!-- Left side - Image with animated overlay -->
                     <div class="md:w-2/5 relative overflow-hidden group">
                         <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/80 to-blue-500/80 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <img src="{{ asset('images/logo.png') }}" alt="Seraphxx" class="w-full h-full object-cover object-center">
+                        <img src="{{ asset('images/pfp.jpg') }}" alt="Seraphxx" class="w-full h-full object-cover object-center">
                         <div class="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
                             <div class="text-white text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                 <span class="text-3xl font-bold block mb-2">Seraphxx</span>
@@ -227,8 +227,9 @@
 </div>
 
 <!-- Image Modal -->
-<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 hidden">
-    <div class="relative max-w-5xl max-h-full">
+<div id="imageModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden backdrop-blur-sm">
+    <div class="absolute inset-0 bg-black opacity-65"></div>
+    <div class="relative max-w-5xl max-h-full z-10">
         <!-- Close button -->
         <button id="closeModal" class="absolute -top-4 -right-4 bg-white text-purple-800 rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10 hover:bg-gray-100 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

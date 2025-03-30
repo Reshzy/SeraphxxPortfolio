@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close modal when clicking outside the image
     modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
+        if (e.target === modal || e.target.classList.contains('absolute')) {
             closeModal();
         }
     });

@@ -136,4 +136,9 @@
 
 #imageModal.active .bg-white {
     transform: scale(1);
+}
+
+/* Backdrop blur effect */
+#imageModal .absolute {
+    transition: opacity 0.3s ease;
 } 
