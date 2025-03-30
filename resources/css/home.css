@@ -1,0 +1,139 @@
+/* Text scrolling animation */
+.conveyer {
+    mask-image: linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
+}
+
+.text-scroll-container {
+    overflow: hidden;
+}
+
+.text-scroll {
+    display: inline-block;
+    animation: textScroll 20s linear infinite;
+}
+
+@keyframes textScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Portfolio item overlay effect */
+.portfolio-item {
+    position: relative;
+    overflow: hidden; /* Hide scrollbars */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(79, 38, 114, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+/* Auto-scrolling image container styles */
+.image-hover .aspect-square, 
+.portfolio-item {
+    overflow: hidden;
+    position: relative;
+}
+
+/* Auto-scrolling images */
+.image-hover .aspect-square img.auto-scroll, 
+.portfolio-item img.auto-scroll {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    animation: verticalScroll 15s linear infinite alternate;
+}
+
+@keyframes verticalScroll {
+    0% {
+        object-position: center top;
+    }
+    100% {
+        object-position: center bottom;
+    }
+}
+
+/* Pause animation on hover */
+.image-hover:hover .aspect-square img.auto-scroll,
+.portfolio-item:hover img.auto-scroll {
+    animation-play-state: paused;
+}
+
+/* Hero title animation */
+.hero-title {
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.5s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Perspective container for 3D effect */
+.perspective-container {
+    perspective: 1000px;
+}
+
+.perspective-container>div {
+    transition: transform 0.5s ease;
+}
+
+.perspective-container>div:hover {
+    transform: translateY(-10px) rotateY(10deg);
+}
+
+/* Modal trigger cursor */
+.modal-trigger {
+    cursor: pointer;
+}
+
+/* Modal animation */
+#imageModal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#imageModal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#imageModal .bg-white {
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+#imageModal.active .bg-white {
+    transform: scale(1);
+} 

@@ -83,8 +83,14 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <!-- Page specific styles -->
+    @yield('styles')
 </head>
 <body class="font-sans antialiased">
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="scrollProgressBar"></div>
+    
     <div class="cursor-follower"></div>
     
     <div class="min-h-screen bg-gray-100">
@@ -126,6 +132,23 @@
         // Custom cursor follower - simplified to avoid cross-origin issues
         document.addEventListener('DOMContentLoaded', function() {
             try {
+                // Scroll progress bar
+                const progressBar = document.getElementById('scrollProgressBar');
+                
+                function updateScrollProgress() {
+                    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    const scrollPercentage = (scrollTop / scrollHeight) * 100;
+                    
+                    progressBar.style.height = scrollPercentage + '%';
+                    
+                    // Add a glow effect when scrolling
+                    progressBar.style.boxShadow = `0 0 ${10 + scrollPercentage/10}px rgba(255, 140, 0, ${0.3 + scrollPercentage/200})`;
+                }
+                
+                window.addEventListener('scroll', updateScrollProgress);
+                updateScrollProgress(); // Initialize on page load
+                
                 const cursor = document.querySelector('.cursor-follower');
                 
                 if (cursor) {
@@ -186,5 +209,8 @@
             }
         });
     </script>
+    
+    <!-- Page specific scripts -->
+    @yield('scripts')
 </body>
 </html> 

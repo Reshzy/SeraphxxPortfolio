@@ -14,6 +14,16 @@
     body {
         @apply bg-gray-100 text-gray-900;
     }
+    
+    /* Hide default scrollbar */
+    html {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    html::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
 }
 
 @layer components {
@@ -23,4 +33,41 @@
     .btn-primary {
         @apply bg-purple-700 text-white hover:bg-purple-800;
     }
+}
+
+/* Progress bar scroll indicator */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 0%;
+    background: linear-gradient(to bottom, #FFBD00, #FF5F00); /* Complementary colors to purple/blue */
+    z-index: 9999;
+    transition: height 0.1s ease-out;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.5);
+}
+
+/* Skill bar animations */
+@keyframes skill-fill {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.animate-skill-bar {
+    animation: skill-fill 1.5s ease-out forwards;
+}
+
+/* About section enhancements */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
